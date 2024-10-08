@@ -232,6 +232,7 @@ resource "azurerm_virtual_machine" "vm_sub3" {
   ]
   availability_set_id = azurerm_availability_set.test_availability_set.id
 
+#Unable to get 32gb stroage, complciations with the image. 64 gb was utilized.
   storage_os_disk {
     name          = "osdisk-vm-sub3"
     caching       = "ReadWrite"
