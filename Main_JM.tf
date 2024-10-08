@@ -273,7 +273,6 @@ resource "azurerm_virtual_machine" "vm_sub3" {
   }
 }
 
-# Public IP for vm3
 resource "azurerm_public_ip" "publicIP_vm1" {
   name                = "public-ip-vm1"
   location            = azurerm_resource_group.test_RG.location
@@ -283,7 +282,6 @@ resource "azurerm_public_ip" "publicIP_vm1" {
   ip_version          = "IPv4"
 }
 
-# Public IP for vm3
 resource "azurerm_public_ip" "publicIP_vm3" {
   name                = "public-ip-vm3"
   location            = azurerm_resource_group.test_RG.location
@@ -293,7 +291,6 @@ resource "azurerm_public_ip" "publicIP_vm3" {
   ip_version          = "IPv4"
 }
 
-# Public IP for Load Balancer
 resource "azurerm_public_ip" "publicIP_test" {
   name                = "test-public-ip"
   location            = azurerm_resource_group.test_RG.location
