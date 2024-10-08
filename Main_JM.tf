@@ -257,7 +257,7 @@ resource "azurerm_virtual_machine" "vm_sub3" {
     disable_password_authentication = false
   }
   
-  #one fo tge issues ran into, could not get access to http area
+  #one of the issues ran into, could not get access to http added and ssh not working
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
