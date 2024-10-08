@@ -56,13 +56,11 @@ variable "subnet_identification" {
 variable "apache_install_script" {
   default = <<EOF
 #!/bin/bash
-# Install Apache
+# Install Apache, add proper listener, create default page, correct permissions, & restrat services
 sudo yum install -y httpd
 
-# Configure Apache to listen on IPv4
 sudo sed -i 's/^Listen .*/Listen 0.0.0.0:80/' /etc/httpd/conf/httpd.conf
 
-# Create a sample index.html file
 cat << 'EOL' | sudo tee /var/www/html/index.html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -205,17 +203,13 @@ cat << 'EOL' | sudo tee /var/www/html/index.html
 
 EOL
 
-# Set permissions for the created index.html file
 sudo chmod 644 /var/www/html/index.html
 
-# Ensure the directory permissions are correct
 sudo chmod 755 /var/www/html
 
-# Start and enable the Apache service
 sudo systemctl start httpd
 sudo systemctl enable httpd
 
-# Restart Apache to apply changes
 sudo systemctl restart httpd
 EOF
 }
